@@ -397,8 +397,9 @@ button {
 .form-field:focus-within .form-icon {
   fill: var(--accent-color);
 }
-.form-field input:focus {
+.form-field .form-input:focus {
   border-color: var(--accent-color);
+  outline: var(--accent-color);
 }
 .form-input:not(:placeholder-shown) + .form-label {
   transform: translate(-38px, -38px);
@@ -427,8 +428,9 @@ button {
 
   color: rgba(117, 117, 117, 0.5);
 }
-textarea:focus {
+.comment:focus {
   border-color: var(--accent-color);
+  outline: var(--accent-color);
 }
 .form-btn {
   display: block;
