@@ -70,6 +70,9 @@ a {
   width: 1px;
   height: 1px;
   margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 ul {
@@ -245,7 +248,11 @@ button {
     box-shadow 250ms var(--timing-function);
 }
 .hero-btn:focus,
-.hero-btn:hover {
+.hero-btn:hover,
+.form-btn:focus,
+.form-btn:hover,
+.subscribe-btn:focus,
+.subscribe-btn:hover {
   transform: scale(1.05);
 
   background-color: #188ce8;
@@ -277,7 +284,7 @@ button {
 .modal {
   position: absolute;
   width: 528px;
-  height: 581px;
+  /* height: 581px; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
@@ -305,12 +312,25 @@ button {
   background-color: var(--white-bcg-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+
+  transform: scale(1);
+  transition: transform 250ms var(--timing-function);
+}
+.close-modal:hover,
+.close-modal:focus {
+  transform: scale(1.05);
 }
 
 .close-icon {
   position: absolute;
   top: 8px;
   right: 8px;
+}
+.close-modal:hover .close-icon,
+.close-modal:focus .close-icon {
+  fill: var(--accent-color);
+
+  transition: fill 250ms var(--timing-function);
 }
 /* ======= Форма ======= */
 /* .modal-title {
@@ -374,6 +394,8 @@ button {
   padding: 12px 12px 12px 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+
+  transition: border-color 250ms var(--timing-function);
 }
 .form-label {
   position: absolute;
@@ -384,12 +406,16 @@ button {
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
+
+  transition: transform 250ms var(--timing-function);
 }
 .form-icon {
   position: absolute;
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
+
+  transition: fill 250ms var(--timing-function);
 }
 .form-field:focus-within .form-label {
   transform: translate(-38px, -38px);
@@ -407,6 +433,7 @@ button {
 /* ======= */
 .comment-section {
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 .comment {
   width: 100%;
@@ -415,6 +442,8 @@ button {
   padding: 12px 16px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+
+  transition: border-color 250ms var(--timing-function);
 }
 .comment-label {
   font-size: 12px;
@@ -432,11 +461,56 @@ button {
   border-color: var(--accent-color);
   outline: var(--accent-color);
 }
+.policy {
+  margin-bottom: 30px;
+}
+.policy-field {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.checkbox-icon {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 4px;
+}
+.checkbox:checked + .checkbox-icon {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  background-image: url('../images/icon-check.svg');
+  background-size: cover;
+  background-origin: border-box;
+}
+.checkbox-label {
+  display: inline-block;
+  margin-right: 5px;
+}
+.checkbox-link {
+  display: inline-block;
+  color: var(--accent-color);
+}
 .form-btn {
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+  transform: scale(1);
+  transition: transform 250ms var(--timing-function), background-color 250ms var(--timing-function);
 }
+
 /* ======== Feauteres section ========  */
 
 .features-list {
@@ -741,10 +815,13 @@ button {
   padding: 15px;
 
   border: 1px solid rgba(255, 255, 255, 0.3);
-
   border-radius: 4px;
+
   background-color: transparent;
   color: var(--white-text-color);
+}
+.email:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .subscribe-btn {
@@ -759,13 +836,6 @@ button {
   transform: scale(1);
   transition: background-color 250ms var(--timing-function), scale 250ms var(--timing-function),
     box-shadow 250ms var(--timing-function);
-}
-.subscribe-btn:focus,
-.subscribe-btn:hover {
-  transform: scale(1.05);
-
-  background-color: #188ce8;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .subscribe-icon {
