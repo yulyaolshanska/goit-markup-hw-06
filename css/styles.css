@@ -397,6 +397,10 @@ button {
 
   transition: border-color 250ms var(--timing-function);
 }
+.form-input:hover,
+.comment:hover {
+  cursor: pointer;
+}
 .form-label {
   position: absolute;
   top: 50%;
@@ -487,6 +491,13 @@ button {
   border: 1px solid var(--secondary-text-color);
   border-radius: 4px;
 }
+/* рамка при фокусе на чекбокс */
+.checkbox:focus + .checkbox-icon {
+  outline: 2px solid #0e6ab6;
+}
+.checkbox:hover + .checkbox-icon {
+  cursor: pointer;
+}
 .checkbox:checked + .checkbox-icon {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
@@ -501,6 +512,8 @@ button {
 .checkbox-link {
   display: inline-block;
   color: var(--accent-color);
+  /* делает подчеркивание сплошным */
+  text-decoration-skip-ink: none;
 }
 .form-btn {
   display: block;
